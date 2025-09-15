@@ -11,7 +11,8 @@ try{
 
         $user->registeruser($name, $email, $password);
         echo "Registratie gelukt!";
-        // header("refresh:2, url = ../index.php");
+        session_start();
+        header("refresh:2, url = ../index.php");
     }
 } catch (Exception $e) {
     echo $e->getMessage();
