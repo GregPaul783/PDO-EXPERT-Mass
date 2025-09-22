@@ -15,8 +15,8 @@ SELECT * FROM user;
 CREATE TABLE product(
 productID int NOT NULL AUTO_INCREMENT,
 omschrijving varchar(255),
-foto MEDIUMBLOB,
-prijs decimal(5,2),
+foto LONGBLOB,
+prijs decimal(6,2),
 PRIMARY KEY(productID)
 );
 

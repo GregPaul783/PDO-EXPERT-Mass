@@ -6,7 +6,7 @@ try{
         $user = new Product();
 
         $omschrijving = htmlspecialchars($_POST["omschrijving"]);
-        $foto = $_POST["foto"];
+        $foto = file_get_contents($_FILES['foto']['tmp_name']);
         $prijsPerStuk = $_POST["prijs"];
 
         $user->insertProduct($omschrijving, $foto, $prijsPerStuk);
@@ -26,7 +26,7 @@ try{
 </head>
 <body>
     <h2>Product Toevoegen</h2>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <input type="text" name="omschrijving" placeholder="Omschrijving" required> <br>
         <input type="number" name="prijs" placeholder="Prijs per stuk" step=".01" required> <br>
         <input type="file" name="foto" value="Bestand kiezen" required> <br>

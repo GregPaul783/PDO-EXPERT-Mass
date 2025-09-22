@@ -11,6 +11,11 @@ class DB {
         }
     }
 
+    public function showProduct() {
+    $stmt = $this->pdo->query("SELECT * FROM product");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function run($query, $args = null) {
     $stmt = $this->pdo->prepare($query);
     $stmt->execute($args);

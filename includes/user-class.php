@@ -17,11 +17,11 @@ class User {
     $user = $this->pdo->run("SELECT * FROM user WHERE email = :email", ["email" => $email])->fetch();
 
     if (!$user) {
-    throw new Exception("Gebruiker niet gevonden."); // User not found
+    throw new Exception("Gebruiker niet gevonden.");
 }
 
 if (!password_verify($password, $user['password'])) {
-    throw new Exception("Ongeldig wachtwoord."); // Invalid password
+    throw new Exception("Ongeldig wachtwoord.");
 }
     }
 }
